@@ -39,6 +39,12 @@ public class CollectorConfig {
     private boolean isShowLog;
 
     /**
+     * 是否收集生命周期及点击事件
+     */
+
+    private boolean isCollectorLifeAndClick;
+
+    /**
      * 上传的接口
      */
     private IUpServer upServer;
@@ -55,6 +61,7 @@ public class CollectorConfig {
         this.isShowLog = buidler.isShowLog;
         this.upServer = buidler.upServer;
         this.collectorType = buidler.collectorType;
+        this.isCollectorLifeAndClick = buidler.isCollectorLifeAndClick;
     }
 
 
@@ -75,6 +82,10 @@ public class CollectorConfig {
         return collectorType;
     }
 
+    public boolean isCollectorLifeAndClick() {
+        return isCollectorLifeAndClick;
+    }
+
     public IUpServer getUpServer() {
         return upServer;
     }
@@ -85,6 +96,7 @@ public class CollectorConfig {
         private long limitFileSize;
 
         private boolean isShowLog;
+        private boolean isCollectorLifeAndClick;
         private IUpServer upServer;
 
         @CollectorConfig.CollectorType
@@ -94,6 +106,7 @@ public class CollectorConfig {
             pollingTime = 3000;         // 默认3秒
             limitFileSize = 1024 * 100; // 默认100kb
             isShowLog = true;           // 默认显示Log
+            isCollectorLifeAndClick = true;
             upServer = null;
             collectorType = TYPE_COLLECTOR_ERROR;
         }
@@ -119,6 +132,11 @@ public class CollectorConfig {
 
         public Buidler setUpServer(IUpServer upServer) {
             this.upServer = upServer;
+            return this;
+        }
+
+        public Buidler setIsCollectorLifeAndClick(boolean isCollectorLifeAndClick) {
+            this.isCollectorLifeAndClick = isCollectorLifeAndClick;
             return this;
         }
 

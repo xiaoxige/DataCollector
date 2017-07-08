@@ -17,8 +17,10 @@ public class ClickEntity extends ALogEntity {
     public ClickEntity(Activity activity) {
         super();
         logType = "click";
-        appName = activity.getPackageName();
-        module = activity.getClass().getSimpleName();
+        if (activity != null) {
+            appName = activity.getPackageName();
+            module = activity.getClass().getSimpleName();
+        }
     }
 
     @Override

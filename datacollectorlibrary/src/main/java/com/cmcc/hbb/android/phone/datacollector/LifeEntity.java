@@ -17,8 +17,10 @@ public class LifeEntity extends ALogEntity {
     public LifeEntity(Activity activity) {
         super();
         logType = "step";
-        appName = activity.getPackageName();
-        module = activity.getClass().getSimpleName();
+        if (activity != null) {
+            appName = activity.getPackageName();
+            module = activity.getClass().getSimpleName();
+        }
     }
 
     @Override

@@ -70,6 +70,10 @@ public class CollectorUtil implements IPollingListener {
         mFileCollector.start();
         mPollingHandler.sendEmptyMessage(PollingHandler.EMPTY);
 
+        if (mConfig.isCollectorLifeAndClick()) {
+            ActivityLifeBack.getInstance().initLifeBack(mContext);
+        }
+
     }
 
     /**

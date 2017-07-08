@@ -20,6 +20,7 @@ public class MyApplication extends Application {
         CollectorConfig config = new CollectorConfig.Buidler()
                 .setIsShowLog(true)
                 .setCollectorType(CollectorConfig.TYPE_COLLECTOR_ERROR)
+                .setIsCollectorLifeAndClick(true)
                 .setPollingTime(3 * 1000)
                 .setLimitFileSize(200 * 1024)
                 .setUpServer(new UpCollector())
